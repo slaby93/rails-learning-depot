@@ -60,4 +60,23 @@ class ProductTest < ActiveSupport::TestCase
     assert product.invalid?
     assert_equal I18n.translate('errors.messages.taken'), product.errors.messages[:title].first
   end
+
+  test "product title have correct length" do
+    product = Product.new(
+                         title: 'a',
+                         price: 1,
+                         description: 'abcedf',
+                         image_url: 'lorem.jpg'
+    )
+
+    assert product.invalid?
+    assert_equal "title is too short", product.errors[:title].first
+    product.title = 'ttttttttttiiiiiiiiiittttttttttllllllllleeeeeeeeee toooooooooo long'
+    assert product.invalid?
+    assert_equal "title is too long", product.errors[:title].first
+
+    product.title = 'abcedf'
+    assert product.valid?
+
+  end
 end
