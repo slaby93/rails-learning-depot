@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header.main {
+  text-align: center;
+
+  @media (min-width: 30em) {
+    text-align: left;
+  }
+
+  background: #282;
+  margin: 0;
+
+  h1 {
+    display: none;
+  }
+}
+
+.content {
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 30em) {
+    flex-direction: row;
+  }
+}
+
+nav {
+  padding-bottom: 1em;
+  background: #141;
+  text-align: center;
+
+  @media (min-width: 30em) {
+    text-align: left;
+    padding: 1em;
+  }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @media (min-width: 30em) {
+    padding-right: 1em;
+  }
+
+  li {
+    margin: 0;
+    padding: 0.5em;
+
+    a {
+      color: #bfb;
+      text-decoration: none;
+    }
+
+    a:hover {
+      background: none;
+      color: white;
+    }
+  }
+
+  main {
+    padding: 0.5em;
+  }
+}
