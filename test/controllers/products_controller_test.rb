@@ -18,7 +18,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create product" do
     assert_difference('Product.count') do
-      post products_url, params: { product: { description: @product.description, image_url: @product.image_url, price: @product.price, title: @title } }
+      post products_url, params: {product: {description: @product.description, image_url: @product.image_url, price: @product.price, title: @title}}
     end
 
     assert_redirected_to product_url(Product.last)
@@ -35,7 +35,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update product" do
-    patch product_url(@product), params: { product: { description: @product.description, image_url: @product.image_url, price: @product.price, title: @title } }
+    patch product_url(@product), params: {product: {description: @product.description, image_url: @product.image_url, price: @product.price, title: @title}}
     assert_redirected_to product_url(@product)
   end
 
@@ -45,5 +45,11 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to products_url
+  end
+
+  test "can't delete product in cart" do
+    assert_difference('Product.count', 0) do
+      delete product_url(products(:two))
+    end
   end
 end
