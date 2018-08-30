@@ -10,4 +10,10 @@ class Cart < ApplicationRecord
     end
     current_item
   end
+
+  def total_price
+    line_items.reduce 0 do |acc, val|
+      acc + val.total_price
+    end
+  end
 end
