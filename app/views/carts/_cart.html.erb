@@ -1,0 +1,14 @@
+<article>
+  <% if notice %>
+    <p id="notice"><%= notice %></p>
+  <% end %>
+  <h2>Your Cart</h2>
+  <ul>
+    <%= render(@cart.line_items) %>
+  </ul>
+  <p>Total price: <%= @cart.total_price %></p>
+  <%= link_to 'Edit', edit_cart_path(@cart) %> |
+  <%= link_to 'Back', carts_path %>
+  <%= button_to 'Empty cart', @cart, method: :delete, data: {confirm: 'Are you sure?'} %>
+
+</article>
