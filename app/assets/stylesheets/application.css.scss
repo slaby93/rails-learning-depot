@@ -1,3 +1,5 @@
+@import 'store';
+
 body {
   margin: 0;
   padding: 0;
@@ -67,4 +69,16 @@ ul {
   main {
     padding: 0.5em;
   }
+}
+
+
+#notice {
+  color: red;
+  border: 1px solid palevioletred;
+  padding: 1em;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: paleturquoise;
 }
