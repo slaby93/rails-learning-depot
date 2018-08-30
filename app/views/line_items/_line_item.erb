@@ -1,5 +1,4 @@
 <li>
-  <%= line_item.product.title %> <br/>
-  <%= line_item.quantity %> <br/>
+  <%= line_item.quantity %>  x <%=  line_item.product.title.truncate 15 %> <br/>
   <%= button_to 'Remove from Cart', line_item, method: :delete %>
 </li>

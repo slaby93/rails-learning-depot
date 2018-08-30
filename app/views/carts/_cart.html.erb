@@ -6,9 +6,8 @@
   <ul>
     <%= render(@cart.line_items) %>
   </ul>
+  <div class="underscore"></div>
   <p>Total price: <%= @cart.total_price %></p>
-  <%= link_to 'Edit', edit_cart_path(@cart) %> |
-  <%= link_to 'Back', carts_path %>
   <%= button_to 'Empty cart', @cart, method: :delete, data: {confirm: 'Are you sure?'} %>
 
 </article>
