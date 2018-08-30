@@ -13,6 +13,7 @@ class LineItemsController < ApplicationController
   # GET /line_items/1
   # GET /line_items/1.json
   def show
+
   end
 
   # GET /line_items/new
@@ -33,12 +34,12 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.cart }
+        format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
-cart_id      end
+      end
     end
   end
 
@@ -59,9 +60,10 @@ cart_id      end
   # DELETE /line_items/1
   # DELETE /line_items/1.json
   def destroy
+    cart = @line_item.cart
     @line_item.destroy
     respond_to do |format|
-      format.html { redirect_to line_items_url, notice: 'Line item was successfully destroyed.' }
+      format.html { redirect_to cart, notice: 'Line item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

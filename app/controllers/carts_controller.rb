@@ -11,6 +11,10 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
+    if (session[:cart_id] != @cart.id)
+      correct_card = Cart.find_by(id: session[:cart_id])
+      redirect_to correct_card
+    end
   end
 
   # GET /carts/new
